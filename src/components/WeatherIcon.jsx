@@ -8,7 +8,7 @@ function WeatherIcon({ icon }) {
 
   
   return (
-    <img src={getIconPath(icon)} alt="Погодна іконка" />
+    <img className='icon' src={getIconPath(icon)} alt="Погодна іконка" />
   );
 }
 

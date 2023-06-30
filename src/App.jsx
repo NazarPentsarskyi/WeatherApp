@@ -25,115 +25,79 @@ function App() {
 
   return (
     <>
-      <div className="container">
-
-        <h1>Weather App</h1>
-      
-        <input type='text' 
-          value={town} 
-          onChange={(event)=> setTown(event.target.value)}
-          placeholder='Enter location'
-          onKeyDown={searchWeather}
-        />
-
-        <div className="location">
-          <h3>{data.name}</h3>
+      <div className='container'>
+        <div className='header'>
+          <h1>Weather App</h1>
+          <input className='input'
+            type='text' 
+            value={town} 
+            onChange={(event)=> setTown(event.target.value)}
+            placeholder='Enter location'
+            onKeyDown={searchWeather}
+          />
         </div>
         
-        <div className="temperature">
-
+        <div className='main'>
           {data.main ? (
-            <h2>
-              {data.main.temp.toFixed()}
-              °C
-            </h2>
-          ) : null}
-          
-
+          <>
+            <div className='location'>
+              <h4>{`${data.name}, `}</h4>
+              {data.main ? (<h4>{data.sys.country}</h4>) : null}
+            </div>
+            <div className='temperature'>
+              {data.main ? (<h2>{data.main.temp.toFixed()}°C</h2>) : null}
+              <div className='feels_like'>
+                {data.main ? (<>
+                  <h3>{data.main.feels_like.toFixed()}°C</h3>
+                  <span>feels like</span>
+                </>) : null}
+              </div>
+            </div>
+            <div>
+              {data.weather ? 
+                <div className='description'>
+                  <p>{data.weather[0].main}</p>
+                  <WeatherIcon icon={data.weather[0].icon} />
+                </div>
+                : null}
+            </div>
+            <div className="other">
+              <div className='pressure'>
+                {data.main ? (<>
+                  <h4>{`${data.main.pressure} `}hPa</h4>
+                  <p>pressure</p>
+                </>) : null}
+              </div>
+              <div className='humidity'>
+                {data.main ? (<>
+                  <h4>{`${data.main.humidity} `}%</h4>
+                  <p>humidity</p>
+                </>) : null}
+              </div>
+              <div className='wind'>
+                {data.main ? (<>
+                  <h4>{`${data.wind.speed} `}m/s</h4>
+                  <p>wind</p>
+                </>) : null}
+              </div>
+            </div>
+            <div className='sunTime'>
+              {data.main ? (<>
+                <p>Sunrise</p>
+                <SunriseTime sunrise={data.sys.sunrise} />
+              </>) : null}
+              {data.main ? (<>
+                <p>Sunset</p>
+                <SunsetTime sunset={data.sys.sunset} />
+              </>) : null}
+            </div>
+          </>
+          ) : null }
         </div>
-
-        <div className="feels_like">
-          {data.main ? (<>
-            <p>feels like </p>
-            <h3>
-              {data.main.feels_like.toFixed()}
-              °C
-            </h3>
-            </>
-          ) : null}
-
-        </div>
-
-        <div className="pressure">
-          {data.main ? (<>
-            <p>pressure </p>
-            <h3>
-              {data.main.pressure}
-              hPa
-            </h3>
-            </>
-          ) : null}
-
-        </div>
-
-        <div className="humidity">
-          {data.main ? (<>
-            <p>humidity </p>
-            <h3>
-              {data.main.humidity}
-              %
-            </h3>
-            </>
-          ) : null}
-
-        </div>
-
-        <div className="wind">
-          {data.main ? (<>
-            <p>wind </p>
-            <h3>
-              {data.wind.speed}
-              meter/sec
-            </h3>
-            </>
-          ) : null}
-
-        </div>
-        <div className="sys">
-          {data.main ? (<>
-            <h3>
-              {data.sys.country}
-            </h3>
-            </>
-          ) : null}
-        </div>
-
- 
-
-
-
-
-        <div className="sys">
-          {data.main ? (<>
-            
-            <SunriseTime sunrise={data.sys.sunrise} />
-            </>
-          ) : null}
-        </div>
-        <div className="sys">
-          {data.main ? (<>
-            
-            <SunsetTime sunset={data.sys.sunset} />
-            </>
-          ) : null}
-        </div>
-
-        <div className="desc">
-          {data.weather ? <div><p>{data.weather[0].main}</p><WeatherIcon icon={data.weather[0].icon} /></div> : null}
+        <div className='footer'>
+          creation by dcool
         </div>
       </div>
-
-      
     </>
   )
 }
