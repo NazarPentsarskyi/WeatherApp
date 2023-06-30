@@ -12,7 +12,7 @@ function App() {
   const [town, setTown] = useState('');
 
   const key = '8fbb5089d94d3c0351c4e1f1e27786e1';
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${town}&units=metric&appid=${key}`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${town}&units=metric&appid=${key}`;
 
   const searchWeather = (event) => {
     if(event.key === 'Enter'){
@@ -95,7 +95,7 @@ function App() {
           ) : null }
         </div>
         <div className='footer'>
-          creation by dcool
+          creation by <a href='https://github.com/NazarPentsarskyi'>dcool</a>
         </div>
       </div>
     </>
