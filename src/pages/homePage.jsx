@@ -1,11 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import WeatherIcon from '../components/WeatherIcon';
 import SunriseTime from '../components/SunriseTime';
 import SunsetTime from '../components/SunsetTime';
-import HourlyPage from './hourlyPage';
 
 
 function HomePage() {
@@ -18,21 +16,22 @@ function HomePage() {
 
   const searchWeather = (event) => {
     if(event.key === 'Enter'){
-      axios.get(url).then((response) => {
-        setData(response.data);
-      });
+      axios
+        .get(url)
+        .then((response) => {
+          setData(response.data);
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+        });
       //setTown('');
     }
-  }
+  };
 
   const handleLogoClick = () => {
     window.location.reload();
   };
   
-  // useEffect(() => {
-  //   HourlyPage({town})
-  // },[town]);
-
   return (
     <>
       <div className='container'>
@@ -107,17 +106,17 @@ function HomePage() {
                 <SunsetTime sunset={data.sys.sunset} />
               </>) : null}
             </div>
-            <HourlyPage town={town} />
-            {/* <Link to={`/hourly`}><button className="button">упс</button></Link> */}
+            <Link to={`/hourly?town=${encodeURIComponent(town)}`}><button className="button">5 day weather forecast</button></Link>
           </>
-          ) : 
+          ) : (
           <input className='inputCenter'
             type='text' 
             value={town} 
             onChange={(event)=> setTown(event.target.value)}
             placeholder='Enter location'
             onKeyDown={searchWeather}
-          /> }
+          /> 
+        )}
         </div>
         
         <div className='footer'>
@@ -125,7 +124,7 @@ function HomePage() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default HomePage;

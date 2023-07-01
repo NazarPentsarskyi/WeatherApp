@@ -180,10 +180,12 @@ html, body {
   width: 500px;
   margin: 50px auto;
 }
+
 .fiveDays {
   margin: 0 auto;
   width: auto;
 }
+
 .fiveDays li {
   list-style-type: none;
   padding: 10px 20px;
@@ -211,6 +213,31 @@ li h2 {
 
 .fiveDays h3 h4 {
   margin: 0 10px;
+}
+
+.button {
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 15px;
+  border: 1px solid grey;
+  background: rgba(255,255,255,0.5);
+  color: #fff;
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #000
+}
+
+.back {
+  width: 120px;
+  text-align: center;
+  margin-left: 70px;
+  margin-top: 20px;
+  text-decoration: none;
 }
 
 .footer {
