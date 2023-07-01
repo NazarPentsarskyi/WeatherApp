@@ -27,7 +27,10 @@ function App() {
     <>
       <div className='container'>
         <div className='header'>
+          <div className='title'>
+          <img src='src/assets/weather-app.png'/>
           <h1>Weather App</h1>
+          </div>
           <input className='input'
             type='text' 
             value={town} 
@@ -86,6 +89,7 @@ function App() {
                 <p>Sunrise</p>
                 <SunriseTime sunrise={data.sys.sunrise} />
               </>) : null}
+              <p>|</p>
               {data.main ? (<>
                 <p>Sunset</p>
                 <SunsetTime sunset={data.sys.sunset} />

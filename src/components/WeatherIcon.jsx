@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 function WeatherIcon({ icon }) {
   
   const getIconPath = (icon) => {
-    return `../src/assets/${icon}.png`;
+    return `../src/assets/newIcon/${icon}.png`;
   };
 
   
