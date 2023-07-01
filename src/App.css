@@ -7,6 +7,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  background-color: #600282;
 }
 
 #root {  
@@ -16,16 +17,16 @@ html, body {
   text-align: center;
 }
 
-.container::before {
+/* .container::before {
   content: '';
-  background: url('../src/assets/background_purple.jpg') no-repeat center center/cover;
+  background: url('../src/assets/background_purple.jpg') repeat-x center center/cover;
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   z-index: -1;
-}
+} */
 
 .container {
   font-family: 'Roboto', sans-serif;
@@ -47,13 +48,13 @@ html, body {
 .header h1 {
   margin: 0 auto;
 }
+
 .header img {
   width: 50px;
   height: 50px;
-  
-  
   margin-right: 10px;
 }
+
 .title {
   display: flex;
   align-items: center;
@@ -62,6 +63,10 @@ html, body {
   padding: 10px;
   color: #000;
   background: rgba(255,255,255,0.5);
+}
+
+.title:hover {
+  cursor: pointer;
 }
 
 .input {
@@ -73,6 +78,18 @@ html, body {
   background: rgba(255,255,255,0.5);
   color: #000;
   font-size: 20px;
+}
+
+.inputCenter {
+  height: 80px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid grey;
+  background: rgba(255,255,255,0.5);
+  color: #000;
+  font-size: 20px;
+  margin: 200px auto;
 }
 
 .input:hover {
@@ -161,20 +178,52 @@ html, body {
   border-radius: 10px;
   border: 1px solid grey;
   width: 500px;
-  margin: 20px auto;
+  margin: 50px auto;
+}
+.fiveDays {
+  margin: 0 auto;
+  width: auto;
+}
+.fiveDays li {
+  list-style-type: none;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+li {
+  height: 150px;
+  border: 1px solid grey;
+  border-radius: 15px;
+  align-items: center;
+  margin: 20px;
+}
+
+li .icon {
+  margin: 0;
+}
+
+li h2 {
+  font-size: 40px;
+}
+
+.fiveDays h3 h4 {
+  margin: 0 10px;
 }
 
 .footer {
   position: sticky;
   bottom: 0;
   font-size: 16px;
-  padding: 10px;
-  margin: 0 auto;
+  padding: 10px 0;
+  text-align: right;
 }
 
 .footer a {
   text-decoration: none;
-  color: #1F5183;
+  color: rgba(255,255,255,0.5);
 }
 
 @media (max-width: 600px) {
