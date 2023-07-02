@@ -10,21 +10,26 @@ function HomePage() {
 
   const [data, setData] = useState({});
   const [town, setTown] = useState('');
+  const [searchedTown, setSearchedTown] = useState('');
 
   const key = '8fbb5089d94d3c0351c4e1f1e27786e1';
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${town}&units=metric&appid=${key}`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchedTown}&units=metric&appid=${key}`;
 
   const searchWeather = (event) => {
     if(event.key === 'Enter'){
+
+      setSearchedTown(town);
+      url = `https://api.openweathermap.org/data/2.5/weather?q=${town}&units=metric&appid=${key}`;
+
       axios
         .get(url)
         .then((response) => {
           setData(response.data);
+          setTown('');
         })
         .catch((error) => {
           console.error('Error fetching data:', error);
         });
-      //setTown('');
     }
   };
 
@@ -106,7 +111,7 @@ function HomePage() {
                 <SunsetTime sunset={data.sys.sunset} />
               </>) : null}
             </div>
-            <Link to={`/hourly?town=${encodeURIComponent(town)}`}><button className="button">5 day weather forecast</button></Link>
+            <Link to={`/hourly?town=${encodeURIComponent(searchedTown)}`}><button className="button">5 day weather forecast</button></Link>
           </>
           ) : (
           <input className='inputCenter'
