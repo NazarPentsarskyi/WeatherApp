@@ -253,6 +253,33 @@ li h2 {
   color: rgba(255,255,255,0.5);
 }
 
+.error {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 80px auto;
+}
+
+.error h4 {
+  font-size: 60px;
+  color: #000;
+}
+
+.error img {
+  width: 200px;
+}
+
+.reload {
+  width: 80px;
+  margin-left: 70px;
+  margin-top: 20px;
+  color: #000;
+}
+
+.reload:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   #root {
     padding: 0;
@@ -263,6 +290,8 @@ li h2 {
   .header {
     flex-direction: column;
     margin-bottom: 20px;
+    margin-top: 10px;
+    height: 120px;
   }
   .header h1 {
     margin: 10px 0px;
@@ -270,6 +299,7 @@ li h2 {
   }
   .input {
     width: 200px;
+    margin-top: 10px;
   }
   .temperature {
     gap: 5px;
@@ -301,5 +331,25 @@ li h2 {
   }
   .sunTime p{
     margin: 5px;
+  }
+
+  li .icon {
+    width: 50px;
+  }
+
+  li h2 {
+    font-size: 20px;
+  }
+
+  li h3 {
+    font-size: 15px;
+  }
+
+  li h4 {
+    font-size: 13px;
+  }
+  
+  li p {
+    font-size: 12px;
   }
 }

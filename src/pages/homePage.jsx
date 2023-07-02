@@ -4,6 +4,7 @@ import axios from 'axios';
 import WeatherIcon from '../components/WeatherIcon';
 import SunriseTime from '../components/SunriseTime';
 import SunsetTime from '../components/SunsetTime';
+import { ErrorPage } from './ErrorPage';
 
 
 function HomePage() {
@@ -11,6 +12,7 @@ function HomePage() {
   const [data, setData] = useState({});
   const [town, setTown] = useState('');
   const [searchedTown, setSearchedTown] = useState('');
+  const [error, setError] = useState(false);
 
   const key = '8fbb5089d94d3c0351c4e1f1e27786e1';
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchedTown}&units=metric&appid=${key}`;
@@ -24,11 +26,17 @@ function HomePage() {
       axios
         .get(url)
         .then((response) => {
-          setData(response.data);
-          setTown('');
+          if (response.data.cod && response.data.cod !== 200) {
+            setError(true);
+          } else {
+            setData(response.data);
+            setTown('');
+            setError(false);
+          }
         })
         .catch((error) => {
           console.error('Error fetching data:', error);
+          setError(true);
         });
     }
   };
@@ -39,6 +47,9 @@ function HomePage() {
   
   return (
     <>
+    {error ? (
+      <ErrorPage />
+    ) : (
       <div className='container'>
         <div className='header'>
           <div className='title' onClick={handleLogoClick}>
@@ -128,6 +139,7 @@ function HomePage() {
           creation by <a href='https://github.com/NazarPentsarskyi'>dcool</a>
         </div>
       </div>
+      )}
     </>
   );
 }
