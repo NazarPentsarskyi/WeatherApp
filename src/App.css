@@ -97,11 +97,20 @@ html, body {
   background-color: #fff;
 }
 
+.inputCenter:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
+
 .input:focus {
   background-color: #fff;
 }
 
 .input:focus::placeholder {
+  color: transparent;
+}
+
+.inputCenter:focus::placeholder {
   color: transparent;
 }
 
