@@ -75,10 +75,10 @@ function HomePage() {
               {data.main ? (<h4>{data.sys.country}</h4>) : null}
             </div>
             <div className='temperature'>
-              {data.main ? (<h2>{data.main.temp.toFixed()}°C</h2>) : null}
+              {data.main ? (<h2>{data.main.temp.toFixed()} °C</h2>) : null}
               <div className='feels_like'>
                 {data.main ? (<>
-                  <h3>{data.main.feels_like.toFixed()}°C</h3>
+                  <h3>{data.main.feels_like.toFixed()} °C</h3>
                   <span>feels like</span>
                 </>) : null}
               </div>
@@ -94,19 +94,19 @@ function HomePage() {
             <div className="other">
               <div className='pressure'>
                 {data.main ? (<>
-                  <h4>{`${data.main.pressure} `}hPa</h4>
+                  <h4>{`${data.main.pressure} `} hPa</h4>
                   <p>pressure</p>
                 </>) : null}
               </div>
               <div className='humidity'>
                 {data.main ? (<>
-                  <h4>{`${data.main.humidity} `}%</h4>
+                  <h4>{`${data.main.humidity} `} %</h4>
                   <p>humidity</p>
                 </>) : null}
               </div>
               <div className='wind'>
                 {data.main ? (<>
-                  <h4>{`${data.wind.speed} `}m/s</h4>
+                  <h4>{`${data.wind.speed.toFixed()} `} m/s</h4>
                   <p>wind</p>
                 </>) : null}
               </div>

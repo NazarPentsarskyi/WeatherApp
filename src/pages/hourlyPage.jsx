@@ -43,17 +43,17 @@ import PropTypes from 'prop-types';
                 {data.cod ? (
                   <ul>{data.list.map((item, index) => (<li key={index}>
                     <DtTime dt={item.dt} />
-                    <h2>{item.main.temp.toFixed()}°C</h2>
+                    <h2>{item.main.temp.toFixed()} °C</h2>
                     <div>
                       <p>feels</p>
-                      <h3> {item.main.feels_like.toFixed()}°C</h3>
+                      <h3> {item.main.feels_like.toFixed()} °C</h3>
                     </div>
                     <WeatherIcon icon={item.weather[0].icon} />
                     <h4>{item.weather[0].description}</h4>
                     <div className='otherDays'>
-                      <h4>{item.main.pressure}hPa</h4>
-                      <h4>{item.main.humidity}%</h4>
-                      <h4>{item.wind.speed}m/s</h4>
+                      <h4>{item.main.pressure} hPa</h4>
+                      <h4>{item.main.humidity} %</h4>
+                      <h4>{item.wind.speed.toFixed()} m/s</h4>
                     </div>
                   </li>
                   ))}
